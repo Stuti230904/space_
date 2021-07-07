@@ -62,15 +62,12 @@ def update(rows):
         trv.insert("", 'end', values=i)
 
 def clear():
-    cur.execute("SELECT NULL FROM Scores")
-    rows=cur.fetchall()
+     f = open('texting', 'w')
+    f.truncate()
+    cur.execute("Delete from scores")
+    rows = cur.fetchall()
     update(rows)
-    f=open("texting", "a")
-    for data in f.read():
-        del data
-    cur.execute("DROP DATABASE game_data_7")
-    f.close()
-
+    quit()
 
 wrapper1 =LabelFrame(screen, text="Leaderboard")
 wrapper2 = LabelFrame(screen, text="Clear")
